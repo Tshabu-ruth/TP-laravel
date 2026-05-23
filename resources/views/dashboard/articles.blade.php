@@ -1,149 +1,153 @@
 @extends('dashboard')
 
-@section('title', 'Articles')
-
-@section('topbar-actions')
-    <button class="btn btn-primary" onclick="document.getElementById('createModal').classList.add('open')">+
-        Nouvel article</button>
-@endsection
-
 @section('content')
-    <div class="toolbar">
-        <input type="search" class="search-input" placeholder="Rechercher un article...">
-        <select class="filter">
-            <option>Toutes les catégories</option>
-            <option>Vitae</option>
-            <option>Dignissimos</option>
-            <option>Optio</option>
-            <option>Aperiam</option>
-            <option>Tenetur</option>
-        </select>
-        <select class="filter">
-            <option>Tous les statuts</option>
-            <option>Publié</option>
-            <option>Brouillon</option>
-        </select>
-    </div>
+        <div class="content">
+            <div class="toolbar">
+                <input type="search" class="search-input" placeholder="Rechercher un article...">
+                <select class="filter">
+                    <option>Toutes les catégories</option>
+                    <option>Vitae</option>
+                    <option>Dignissimos</option>
+                    <option>Optio</option>
+                    <option>Aperiam</option>
+                    <option>Tenetur</option>
+                </select>
+                <select class="filter">
+                    <option>Tous les statuts</option>
+                    <option>Publié</option>
+                    <option>Brouillon</option>
+                </select>
+            </div>
 
-    <div class="panel">
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Titre</th>
-                    <th>Catégorie</th>
-                    <th>Auteur</th>
-                    <th>Statut</th>
-                    <th>Publié le</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="text-muted">1</td>
-                    <td class="truncate">Sed molestiae omnis ratione ea enim ea</td>
-                    <td class="text-muted">Vitae</td>
-                    <td class="text-muted">Annetta Runolfsson</td>
-                    <td><span class="badge badge-published">Publié</span></td>
-                    <td class="text-muted">21 jan. 2012</td>
-                    <td>
-                        <div class="actions"><button class="btn btn-edit" onclick="openEdit()">Éditer</button><button
-                                class="btn btn-danger">Suppr.</button></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-muted">2</td>
-                    <td class="truncate">Sit ad perferendis possimus ut</td>
-                    <td class="text-muted">Vitae</td>
-                    <td class="text-muted">Janet Davis</td>
-                    <td><span class="badge badge-published">Publié</span></td>
-                    <td class="text-muted">20 nov. 1996</td>
-                    <td>
-                        <div class="actions"><button class="btn btn-edit" onclick="openEdit()">Éditer</button><button
-                                class="btn btn-danger">Suppr.</button></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-muted">3</td>
-                    <td class="truncate">Veniam maxime autem enim</td>
-                    <td class="text-muted">Vitae</td>
-                    <td class="text-muted">Madalyn Lowe</td>
-                    <td><span class="badge badge-published">Publié</span></td>
-                    <td class="text-muted">1 oct. 1990</td>
-                    <td>
-                        <div class="actions"><button class="btn btn-edit" onclick="openEdit()">Éditer</button><button
-                                class="btn btn-danger">Suppr.</button></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-muted">4</td>
-                    <td class="truncate">Tempora aut et incidunt ad ipsa</td>
-                    <td class="text-muted">Vitae</td>
-                    <td class="text-muted">Alena Heathcote</td>
-                    <td><span class="badge badge-draft">Brouillon</span></td>
-                    <td class="text-muted">—</td>
-                    <td>
-                        <div class="actions"><button class="btn btn-edit" onclick="openEdit()">Éditer</button><button
-                                class="btn btn-danger">Suppr.</button></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-muted">5</td>
-                    <td class="truncate">Cumque itaque dolorum non est praesentium</td>
-                    <td class="text-muted">Vitae</td>
-                    <td class="text-muted">Brennan Purdy II</td>
-                    <td><span class="badge badge-draft">Brouillon</span></td>
-                    <td class="text-muted">—</td>
-                    <td>
-                        <div class="actions"><button class="btn btn-edit" onclick="openEdit()">Éditer</button><button
-                                class="btn btn-danger">Suppr.</button></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-muted">27</td>
-                    <td class="truncate">Excepturi eligendi aliquid iste laboriosam et soluta cum</td>
-                    <td class="text-muted">Optio</td>
-                    <td class="text-muted">Jacklyn Lueilwitz</td>
-                    <td><span class="badge badge-published">Publié</span></td>
-                    <td class="text-muted">15 jul. 2015</td>
-                    <td>
-                        <div class="actions"><button class="btn btn-edit" onclick="openEdit()">Éditer</button><button
-                                class="btn btn-danger">Suppr.</button></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-muted">31</td>
-                    <td class="truncate">Aut repellat ut qui et</td>
-                    <td class="text-muted">Aperiam</td>
-                    <td class="text-muted">Dr. Travon Kirlin</td>
-                    <td><span class="badge badge-published">Publié</span></td>
-                    <td class="text-muted">8 oct. 2019</td>
-                    <td>
-                        <div class="actions"><button class="btn btn-edit" onclick="openEdit()">Éditer</button><button
-                                class="btn btn-danger">Suppr.</button></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-muted">50</td>
-                    <td class="truncate">Sed laudantium facilis dolore non sunt</td>
-                    <td class="text-muted">Tenetur</td>
-                    <td class="text-muted">Esteban Murphy</td>
-                    <td><span class="badge badge-published">Publié</span></td>
-                    <td class="text-muted">4 nov. 1980</td>
-                    <td>
-                        <div class="actions"><button class="btn btn-edit" onclick="openEdit()">Éditer</button><button
-                                class="btn btn-danger">Suppr.</button></div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="pagination">
-            <button class="page-btn active">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">3</button>
-            <button class="page-btn">4</button>
-            <button class="page-btn">5</button>
-            <button class="page-btn">→</button>
+            <div class="panel">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Titre</th>
+                            <th>Catégorie</th>
+                            <th>Auteur</th>
+                            <th>Statut</th>
+                            <th>Publié le</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-muted">1</td>
+                            <td class="truncate">Sed molestiae omnis ratione ea enim ea</td>
+                            <td class="text-muted">Vitae</td>
+                            <td class="text-muted">Annetta Runolfsson</td>
+                            <td><span class="badge badge-published">Publié</span></td>
+                            <td class="text-muted">21 jan. 2012</td>
+                            <td>
+                                <div class="actions"><button class="btn btn-edit"
+                                        onclick="openEdit()">Éditer</button><button
+                                        class="btn btn-danger">Suppr.</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">2</td>
+                            <td class="truncate">Sit ad perferendis possimus ut</td>
+                            <td class="text-muted">Vitae</td>
+                            <td class="text-muted">Janet Davis</td>
+                            <td><span class="badge badge-published">Publié</span></td>
+                            <td class="text-muted">20 nov. 1996</td>
+                            <td>
+                                <div class="actions"><button class="btn btn-edit"
+                                        onclick="openEdit()">Éditer</button><button
+                                        class="btn btn-danger">Suppr.</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">3</td>
+                            <td class="truncate">Veniam maxime autem enim</td>
+                            <td class="text-muted">Vitae</td>
+                            <td class="text-muted">Madalyn Lowe</td>
+                            <td><span class="badge badge-published">Publié</span></td>
+                            <td class="text-muted">1 oct. 1990</td>
+                            <td>
+                                <div class="actions"><button class="btn btn-edit"
+                                        onclick="openEdit()">Éditer</button><button
+                                        class="btn btn-danger">Suppr.</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">4</td>
+                            <td class="truncate">Tempora aut et incidunt ad ipsa</td>
+                            <td class="text-muted">Vitae</td>
+                            <td class="text-muted">Alena Heathcote</td>
+                            <td><span class="badge badge-draft">Brouillon</span></td>
+                            <td class="text-muted">—</td>
+                            <td>
+                                <div class="actions"><button class="btn btn-edit"
+                                        onclick="openEdit()">Éditer</button><button
+                                        class="btn btn-danger">Suppr.</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">5</td>
+                            <td class="truncate">Cumque itaque dolorum non est praesentium</td>
+                            <td class="text-muted">Vitae</td>
+                            <td class="text-muted">Brennan Purdy II</td>
+                            <td><span class="badge badge-draft">Brouillon</span></td>
+                            <td class="text-muted">—</td>
+                            <td>
+                                <div class="actions"><button class="btn btn-edit"
+                                        onclick="openEdit()">Éditer</button><button
+                                        class="btn btn-danger">Suppr.</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">27</td>
+                            <td class="truncate">Excepturi eligendi aliquid iste laboriosam et soluta cum</td>
+                            <td class="text-muted">Optio</td>
+                            <td class="text-muted">Jacklyn Lueilwitz</td>
+                            <td><span class="badge badge-published">Publié</span></td>
+                            <td class="text-muted">15 jul. 2015</td>
+                            <td>
+                                <div class="actions"><button class="btn btn-edit"
+                                        onclick="openEdit()">Éditer</button><button
+                                        class="btn btn-danger">Suppr.</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">31</td>
+                            <td class="truncate">Aut repellat ut qui et</td>
+                            <td class="text-muted">Aperiam</td>
+                            <td class="text-muted">Dr. Travon Kirlin</td>
+                            <td><span class="badge badge-published">Publié</span></td>
+                            <td class="text-muted">8 oct. 2019</td>
+                            <td>
+                                <div class="actions"><button class="btn btn-edit"
+                                        onclick="openEdit()">Éditer</button><button
+                                        class="btn btn-danger">Suppr.</button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">50</td>
+                            <td class="truncate">Sed laudantium facilis dolore non sunt</td>
+                            <td class="text-muted">Tenetur</td>
+                            <td class="text-muted">Esteban Murphy</td>
+                            <td><span class="badge badge-published">Publié</span></td>
+                            <td class="text-muted">4 nov. 1980</td>
+                            <td>
+                                <div class="actions"><button class="btn btn-edit"
+                                        onclick="openEdit()">Éditer</button><button
+                                        class="btn btn-danger">Suppr.</button></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn">4</button>
+                    <button class="page-btn">5</button>
+                    <button class="page-btn">→</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -158,7 +162,8 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label">Titre <span class="required">*</span></label>
-                    <input type="text" class="form-control" name="title" placeholder="Titre de l'article" required>
+                    <input type="text" class="form-control" name="title" placeholder="Titre de l'article"
+                        required>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Slug</label>
